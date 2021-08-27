@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Editar Estudiante</title>
+	<!--La siguiente linea muestra la forma de cargar css propios-->
+	<link rel="stylesheet" th:href="@{/css/miestilo.css}">
+
+</head>
+<body>
+
+    <div class="container-form">
+
+		<div class="container border my-4 pt-3">
+			<h2>Actualizar Datos Estudiante</h2>
+			<form th:action="@{/estudiante/save}" method="POST">
+				<div class="form-group">
+					<label for="codigo">Documento:</label>
+					<input type="codigo" class="form-control" id="codigo" 
+						name="codigo" th:value="${estudiante.codigo}">
+				</div>
+				<div class="form-group">
+					<label for="nombre">Nombre:</label>
+					<input type="nombre" class="form-control" id="nombre" 
+                        name="nombre" th:value="${estudiante.nombre}">
+				</div>
+				<div class="form-group">
+					<label for="apellido">Apellido:</label>
+					<input type="apellido" class="form-control" id="apellido" 
+						name="apellido" th:value="${estudiante.apellido}">
+				</div>
+				<div class="form-group">
+					<label for="edad">Edad:</label>
+					<input type="edad" class="form-control" id="edad" 
+                        name="edad" th:value="${estudiante.edad}">
+				</div>
+				<button type="submit" class="btn btn-success">Guardar</button>
+			</form>
+			<br>
+		</div>
+
+	</div>
+    
+</body>
+</html>

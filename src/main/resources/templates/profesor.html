@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>Profesores</title>
+	<!--La siguiente linea muestra la forma de cargar css propios-->
+	<link rel="stylesheet" th:href="@{/css/miestilo.css}">
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<!-- Brand/logo -->
+		<a class="navbar-brand" href="#">
+			<img th:src="@{/img/sena.png}" alt="SENA" style="width:40px;">
+		</a>
+
+		<!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/estudiante}">Gestionar Estudiantes</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/profesor}">Gestionar Profesores</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Gestionar Cursos</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="container-form">
+
+		<div class="container border my-4 pt-3">
+			<h2>Registrar Nuevo Profesor</h2>
+			<form th:action="@{/profesor/save}" method="POST">
+				<div class="form-group">
+					<label for="codigo">Documento:</label>
+					<input type="codigo" class="form-control" id="codigo" placeholder="Ingrese el Documento"
+						name="codigo">
+				</div>
+				<div class="form-group">
+					<label for="nombre">Nombre:</label>
+					<input type="nombre" class="form-control" id="nombre" placeholder="Ingrese el Nombre" name="nombre">
+				</div>
+				<div class="form-group">
+					<label for="apellido">Apellido:</label>
+					<input type="apellido" class="form-control" id="apellido" placeholder="Ingrese el Apellido"
+						name="apellido">
+				</div>
+				<div class="form-group">
+					<label for="categoria">Categoria:</label>
+					<input type="categoria" class="form-control" id="categoria" placeholder="Ingrese la Categoria"
+						name="categoria">
+				</div>
+				<div class="form-group">
+					<label for="salario">Salario:</label>
+					<input type="salario" class="form-control" id="salario" placeholder="Ingrese el Salario"
+						name="salario">
+				</div>
+				<button type="submit" class="btn btn-success">Guardar</button>
+			</form>
+			<br>
+		</div>
+
+	</div>
+
+	<div class="container border my-4 pt-3">
+		<h2>Profesores</h2>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Documento</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Categoria</th>
+					<th>Salario</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="profesor:${profesores}">
+					<td scope="row" th:text="${profesor.codigo}"></td>
+					<td scope="row" th:text="${profesor.nombre}"></td>
+					<td scope="row" th:text="${profesor.apellido}"></td>
+					<td scope="row" th:text="${profesor.categoria}"></td>
+					<td scope="row" th:text="${profesor.salario}"></td>
+					<td><a th:href="@{/profesor/editar/{id} (id=${profesor.codigo}) }" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/profesor/eliminar/{id} (id=${profesor.codigo}) }" class="btn btn-danger">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>
