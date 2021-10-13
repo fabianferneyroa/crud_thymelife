@@ -90,7 +90,7 @@
 					<td scope="row" th:text="${estudiante.nombre}"></td>
 					<td scope="row" th:text="${estudiante.apellido}"></td>
 					<td scope="row" th:text="${estudiante.edad}"></td>
-					<td><a th:href="@{/estudiante/editar/{id} (id=${estudiante.codigo}) }" class="btn btn-warning">Editar</a></td>
+				    <td><a th:href="@{/estudiante/editar/{id} (id=${estudiante.codigo}) }" class="btn btn-warning">Editar</a></td>
 					<td><a th:href="@{/estudiante/eliminar/{id} (id=${estudiante.codigo}) }" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>

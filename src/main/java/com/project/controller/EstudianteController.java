@@ -29,6 +29,7 @@ public class EstudianteController {
 	/*direccion para que se ejecute el metodo principal
 	el cual permite listar todos los estudiantes
 	que se encuentran registrados en la base de datos*/
+	
 	@GetMapping("")
 	public String estudiante(Model modelo) {
 		
